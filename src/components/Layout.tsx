@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import { 
   LayoutDashboard, 
@@ -7,13 +7,11 @@ import {
   CreditCard, 
   UserCircle, 
   Bell, 
-  LogOut, 
-  Menu 
+  LogOut 
 } from 'lucide-react';
 
 function Layout() {
   const navigate = useNavigate();
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const handleLogout = () => {
     // Add logout logic here
@@ -21,13 +19,9 @@ function Layout() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col md:flex-row">
+    <div className="min-h-screen bg-gray-50">
       {/* Sidebar */}
-      <aside
-        className={`fixed top-0 left-0 h-screen w-64 bg-white shadow-lg transform transition-transform ${
-          isSidebarOpen ? 'translate-x-0' : '-translate-x-64'
-        } md:translate-x-0 md:relative md:w-64`}
-      >
+      <aside className="fixed top-0 left-0 h-screen w-64 bg-white shadow-lg">
         <div className="flex items-center gap-2 p-6 border-b">
           <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
             <span className="text-white font-bold">MD</span>
@@ -87,18 +81,10 @@ function Layout() {
       </aside>
 
       {/* Main Content */}
-      <div className={`flex-1 ml-0 md:ml-64 transition-all duration-300 ${isSidebarOpen ? 'ml-64' : 'ml-0'}`}>
+      <div className="ml-64">
         {/* Header */}
         <header className="h-16 bg-white shadow-sm flex items-center justify-between px-6">
-          <div className="flex items-center gap-4">
-            <button
-              className="p-2 hover:bg-gray-100 rounded-full md:hidden"
-              onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-            >
-              <Menu size={20} className="text-gray-600" />
-            </button>
-            <h1 className="text-xl font-semibold text-gray-800">Medical Dashboard</h1>
-          </div>
+          <h1 className="text-xl font-semibold text-gray-800">Medical Dashboard</h1>
           
           <div className="flex items-center gap-4">
             <button className="p-2 hover:bg-gray-100 rounded-full">
