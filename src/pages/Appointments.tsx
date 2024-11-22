@@ -37,7 +37,7 @@ function Appointments() {
 
       <div className="bg-white shadow-sm rounded-lg overflow-hidden">
         <div className="min-w-full divide-y divide-gray-200">
-          <div className="bg-gray-50 px-6 py-3">
+          <div className="bg-gray-50 px-6 py-3 hidden sm:block">
             <div className="grid grid-cols-5 gap-4">
               <div className="text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Patient
@@ -59,7 +59,7 @@ function Appointments() {
           <div className="bg-white divide-y divide-gray-200">
             {appointments.map((appointment) => (
               <div key={appointment.id} className="px-6 py-4">
-                <div className="grid grid-cols-5 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-5 gap-4">
                   <div className="flex items-center">
                     <User className="h-5 w-5 text-gray-400 mr-2" />
                     <span className="text-sm font-medium text-gray-900">
@@ -100,9 +100,9 @@ function Appointments() {
       {/* New Appointment Modal */}
       {showModal && (
         <div className="fixed z-10 inset-0 overflow-y-auto">
-          <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+          <div className="flex items-center justify-center min-h-screen p-4 sm:p-0">
             <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
-            <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+            <div className="bg-white rounded-lg shadow-xl transform transition-all sm:w-full sm:max-w-lg">
               <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                 <h3 className="text-lg font-medium text-gray-900 mb-4">New Appointment</h3>
                 <form className="space-y-4">
@@ -148,17 +148,17 @@ function Appointments() {
                   </div>
                 </form>
               </div>
-              <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+              <div className="bg-gray-50 px-4 py-3 flex flex-col sm:flex-row sm:justify-end">
                 <button
                   type="button"
-                  className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+                  className="w-full sm:w-auto inline-flex justify-center rounded-md shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:text-sm"
                 >
                   Schedule
                 </button>
                 <button
                   type="button"
                   onClick={() => setShowModal(false)}
-                  className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:w-auto sm:text-sm"
+                  className="mt-3 w-full sm:w-auto inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:text-sm"
                 >
                   Cancel
                 </button>
